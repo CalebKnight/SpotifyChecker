@@ -17,8 +17,22 @@ def main():
     for idx,track in enumerate(tracks):
         for idx2,track in enumerate(tracks):
             if track == tracks[idx] and idx != idx2:
-                print("Match found for {}".format(track[0]))
-                print("Track ID: {}".format(track[1]))
+                if(checkTrackName(track[0], tracks[idx][0])) == True:
+                    print("Match found for {}".format(track[0]))
+                    print("Track ID: {}".format(track[1]))
+
+def checkTrackName(trackName1, trackName2):
+    count = 0
+    totalCount = len(trackName2)
+    for idx,char in enumerate(trackName1):
+        if char == trackName2[idx]:
+            count += 1
+    if count == totalCount or totalCount/count > 0.8:
+        return True
+    else:
+        return False
+        
+
 
 def getTracks(response):
     listOfTracks = []
