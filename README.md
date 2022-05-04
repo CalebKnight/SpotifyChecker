@@ -8,4 +8,4 @@ IMPORTANT: Need to make a .env with the following variables from a https://devel
 
 SPOTIFY_CLIENT_ID={ID HERE}
 
-SPOTIFY_CLIENT_SECRET{SECRET HERE}
+SPOTIFY_CLIENT_SECRET={SECRET HERE}
