@@ -6,7 +6,7 @@ class File:
         self.fileContent = None
 
     def read(self):
-        with open(self.fileName, 'r') as csvfile:
+        with open(self.fileName, 'r', encoding="utf-8") as csvfile:
             reader = csv.reader(csvfile, delimiter=',')
             tracks = []
             for row in reader:

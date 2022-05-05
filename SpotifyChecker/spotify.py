@@ -16,7 +16,11 @@ def main():
     spotifyAccessToken = getAccessToken()
     playlistId = "1I3op6do4myH4RouoJFn0s"
     file = File("SpotifyChecker/tracks.csv")
-    file.read()
+    try:
+        file.read()
+    except FileNotFoundError:
+        file.write([])
+        file.read()
     if(len(file.fileContent) == 0):
         tracks = Tracks()
         tracks.genTracks(playlistId, spotifyAccessToken)
