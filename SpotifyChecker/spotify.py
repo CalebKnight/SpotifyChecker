@@ -15,7 +15,7 @@ def main():
     
     spotifyAccessToken = getAccessToken()
     playlistId = "1I3op6do4myH4RouoJFn0s"
-    file = File("tracks.csv")
+    file = File("SpotifyChecker/tracks.csv")
     file.read()
     if(len(file.fileContent) == 0):
         tracks = Tracks()
