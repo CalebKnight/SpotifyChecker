@@ -10,6 +10,8 @@ class Track:
         return self.name + " " + self.id + " " + self.artist + " " + self.album
     
     def nameIsSimilar(self, track):
+        # Need to check that both the name and the artist are similar in both directions
+        # Otherwise a song name of just 'Good' can be considered similar to a song name of 'Good bye Jimmy'
         if Track.isSimilar(self.name, track.name) and Track.isSimilar(track.name, self.name) and self.artistIsSimilar(track):
             return True
         return False
