@@ -10,12 +10,13 @@ class Track:
         return self.name + " " + self.id + " " + self.artist + " " + self.album
     
     def nameIsSimilar(self, track):
-        if Track.isSimilar(self.name, track.name) and Track.isSimilar(track.name, self.name):
+        if Track.isSimilar(self.name, track.name) and Track.isSimilar(track.name, self.name) and self.artistIsSimilar(track):
             return True
         return False
 
     def artistIsSimilar(self, track):
         return Track.isSimilar(self.artist, track.artist)
+        
     def isSimilar(string1, string2):
         count = 0
         words = string1.split()

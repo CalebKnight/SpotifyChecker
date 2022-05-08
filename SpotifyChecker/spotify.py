@@ -12,7 +12,7 @@ ClientId = os.getenv('SPOTIFY_CLIENT_ID')
 ClientSecret = os.getenv('SPOTIFY_CLIENT_SECRET')
 
 def main():
-    
+    createNewFile = input("Create new file? (y/n): ")
     spotifyAccessToken = getAccessToken()
     playlistId = "1I3op6do4myH4RouoJFn0s"
     file = File("SpotifyChecker/tracks.csv")
@@ -21,15 +21,15 @@ def main():
     except FileNotFoundError:
         file.write([])
         file.read()
-    if(len(file.fileContent) == 0):
+    if(len(file.fileContent) == 0 or createNewFile == "y"):
         tracks = Tracks()
         tracks.genTracks(playlistId, spotifyAccessToken)
         file.write(tracks.tracks)
         file.read()
     tracks = file.fileContent
     
-    for track in tracks:
-        print(track.name)
+    # for track in tracks:
+    #     print(track.name)
     for idx,track in enumerate(tracks):
         for idx2,track2 in enumerate(tracks):
             if(track.id != track2.id ):
@@ -48,7 +48,6 @@ def getAccessToken():
         'client_id': ClientId,
         'client_secret': ClientSecret
     })
-    print(response.json())
     return response.json()['access_token']
 
 
