@@ -9,6 +9,9 @@ class Track:
     def __str__(self):
         return self.name + " " + self.id + " " + self.artist + " " + self.album
     
+    def toString(self):
+        return self.name + " by " + self.artist + " in " + self.album
+
     def nameIsSimilar(self, track):
         # Need to check that both the name and the artist are similar in both directions
         # Otherwise a song name of just 'Good' can be considered similar to a song name of 'Good bye Jimmy'

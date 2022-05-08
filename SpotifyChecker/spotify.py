@@ -34,14 +34,8 @@ def main():
         for idx2,track2 in enumerate(tracks):
             if(track.id != track2.id ):
                 if track.nameIsSimilar(track2):
-                    print(track.name + " is similar to " + track2.name)
+                    print(track.toString() + "\nis similar to\n" + track2.toString() + "\n")
                    
-
-       
-
-
-
-
 def getAccessToken():
     response = requests.post('https://accounts.spotify.com/api/token', data={
         'grant_type': 'client_credentials',
